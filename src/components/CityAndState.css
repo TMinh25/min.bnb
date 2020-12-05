@@ -1,0 +1,27 @@
+.city-state-container {
+	list-style: none;
+	margin-bottom: 50px;
+}
+
+.city-state-container li {
+	float: left;
+	width: 33%;
+	padding: 15px 15px;
+}
+
+.city {
+  font-weight: 600;
+  color: rgb(66, 66, 66);
+}
+.state {
+  font-weight: 400;
+  color: #999999;
+}
+
+@media only screen and (max-width: 768px) {
+	.city-state-container li {
+		/* float: left; */
+		width: 50%;
+		padding: 10px 5px;
+	}
+}

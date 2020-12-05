@@ -63,6 +63,7 @@
 }
 .nav-search-box input {
 	height: 50px;
+	position: relative;
 	width: 100%;
 	outline: none;
 	padding: 10px 20px;
@@ -119,6 +120,13 @@
 }
 
 @media screen and (max-width: 960px) {
+	.nav-search-box {
+		font-size: 15px;
+	}
+	.nav-links {
+		font-size: 12px;
+	}
+
 	.NavbarItems {
 		position: relative;
 	}
@@ -145,22 +153,19 @@
 
 	.nav-links {
 		text-align: center;
-		padding: 2rem;
 		width: 100%;
 		display: table;
 		padding: 0;
+		line-height: 3.5;
+		border-radius: 100px;
 	}
 	.nav-item {
 		height: 100%;
 		padding: 20px 0;
 	}
-
-	.nav-links:hover {
-		/* background-color: #fff; */
-		color: #242424;
-		border-radius: 0;
+	.nav-item:last-child {
+		width: 20%;
 	}
-
 	.navbar-logo {
 		/* position: absolute; */
 		/* top: 0; */
@@ -181,16 +186,11 @@
 		cursor: pointer;
 	}
 
-	.fa-times {
-		color: #000;
-		font-size: 2rem;
-	}
-
 	.nav-links-mobile {
 		display: block;
 		text-align: center;
 		margin: 2rem auto;
-		border-radius: 4px;
+		border-radius: 100px;
 		width: 80%;
 		text-decoration: none;
 		font-size: 1.5rem;

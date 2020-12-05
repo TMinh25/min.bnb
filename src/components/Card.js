@@ -1,4 +1,5 @@
 import React, {useEffect} from "react";
+import {Link} from "react-router-dom";
 import "./Card.css";
 import Carousel, {CarouselImage} from "./Carousel";
 import ImageSlider, {Image} from "./ImageSlider";
@@ -9,7 +10,7 @@ const CardCarousel = (props) => {
 		<>
 			<li>
 				{/* Vô hiệu hóa link có thể ấn được nút chuyển ảnh */}
-				<a href={canClick ? props.path : "javascript:void(0)"}>
+				<Link to={canClick ? props.path : "javascript:void(0)"}>
 					{/* <a href="javascript:void(0)"> */}
 					<ImageSlider label={props.label} />
 					{props.header ? (
@@ -39,7 +40,7 @@ const CardCarousel = (props) => {
 							</p>
 						</div>
 					)}
-				</a>
+				</Link>
 			</li>
 		</>
 	);
@@ -49,7 +50,7 @@ export const CardImage = (props) => {
 	return (
 		<>
 			<li>
-				<a href={props.path}>
+				<Link to={props.path}>
 					<Image src={props.src} label={props.label} />
 					{props.header ? (
 						<h3 className="carousel-header">{props.header}</h3>
@@ -74,7 +75,7 @@ export const CardImage = (props) => {
 							</p>
 						</div>
 					)}
-				</a>
+				</Link>
 			</li>
 		</>
 	);

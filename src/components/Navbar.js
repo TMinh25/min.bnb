@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import {useHistory} from 'react-router-dom';
+import {Link, useHistory} from "react-router-dom";
 import Logo from "./Logo";
 import "./Navbar.css";
 
@@ -7,8 +7,6 @@ const changeLogoColor = (color) => {
 	const texts = document.querySelectorAll(".logo-font");
 	texts.forEach((text) => text.setAttribute("style", `fill: ${color}`));
 };
-
-var isTrans = true;
 
 window.onscroll = () => {
 	if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
@@ -22,27 +20,24 @@ window.onscroll = () => {
 	}
 };
 
-function Navbar() {
-	const [click, setClick] = useState(false);
-	// const [button, setButton] = useState(true);  
+function Navbar(props) {
+	// const [button, setButton] = useState(true);
 	const history = useHistory();
 	const [destination, setDestination] = useState("");
 
-	const closeMobileMenu = () => setClick(false);
+	// const closeMobileMenu = () => setClick(false);
 	const handleChangeDestination = ({target}) => {
 		setDestination(target.value);
 	};
-	// const toProducts = () => {
-	// 	window.
-	// }
+
 	const handleOnClickSearch = () => history.push("/products");
 	return (
 		<>
 			<nav className="navbar navbar-transparent" id="navbar">
 				<div className="navbar-container">
-					<a href="/" className="navbar-logo" onClick={closeMobileMenu}>
+					<Link to="/" className="navbar-logo">
 						<Logo />
-					</a>
+					</Link>
 					<form className="nav-search-box">
 						<input
 							type="text"
@@ -55,9 +50,9 @@ function Navbar() {
 						</button>
 					</form>
 					<div className="nav-item">
-						<a href="/hosts" className="nav-links" onClick={closeMobileMenu}>
+						<Link to="/hosts" className="nav-links">
 							Trở thành chủ nhà
-						</a>
+						</Link>
 					</div>
 				</div>
 			</nav>

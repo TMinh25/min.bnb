@@ -8,10 +8,13 @@
     "@testing-library/user-event": "^7.1.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-map-gl": "^5.2.10",
+    "react-map-gl-geocoder": "^2.1.6",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "react-simple-image-slider": "^2.0.1",
-    "react-slideshow-image": "^3.4.2"
+    "react-slideshow-image": "^3.4.2",
+    "semantic-ui-react": "^2.0.1"
   },
   "scripts": {
     "start": "react-scripts start",

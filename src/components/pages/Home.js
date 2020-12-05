@@ -54,8 +54,8 @@ function Home() {
 					</h3>
 					<div className="cards__wrapper">
 						<ul className="cards__items_verti">
-							<CardCarousel
-								// src="images/host-your-house.jpg"
+							<CardImage
+								src="images/host-your-house.jpg"
 								header="Cho thuê nhà bạn"
 								path="/hosts"
 							/>
@@ -89,7 +89,7 @@ function Home() {
 							<CityAndState />
 						</div>
 						<div label="Điểm đến nổi tiếng">
-							Nothing to see here, this tab is <em>extinct</em>!
+							<CityAndState />
 						</div>
 					</Tabs>
 				</div>

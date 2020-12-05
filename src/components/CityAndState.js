@@ -31,8 +31,8 @@ function shuffleProperties(obj) {
 
 const CityAndState = () => {
 	const [cityState, setCityState] = React.useState({
-		"New York": "New York",
-		Chicago: "Illinois",
+		"Hạ Long": "Quảng Ninh",
+		"Cẩm Phả": "Quảng Ninh",
 		Miami: "Florida",
 		"San Diego": "California",
 		"San Francisco": "California",
@@ -62,18 +62,20 @@ const CityAndState = () => {
 	}, []);
 
 	return (
-		<div className="city-state-container">
+		<ul className="city-state-container clearfix">
 			{Object.keys(cityState).map((key, index) => {
 				return (
 					<>
 						<li>
-							<p>{key}</p>
-							<p>{cityState[key]}</p>
+							<a href="/products">
+								<p className="city">{key}</p>
+								<p className="state">{cityState[key]}</p>
+							</a>
 						</li>
 					</>
 				);
 			})}
-		</div>
+		</ul>
 	);
 };
 
