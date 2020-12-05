@@ -1,0 +1,2 @@
+# min.bnb
+ Airbnb Clone
