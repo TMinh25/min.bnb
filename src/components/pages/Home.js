@@ -1,4 +1,5 @@
 import React from "react";
+import NavBar from "../Navbar";
 import "../../App.css";
 import "../Card.css";
 import HeroSection from "../HeroSection";
@@ -10,6 +11,7 @@ import Tabs from "../Tabs";
 function Home() {
 	return (
 		<>
+			<NavBar isTrans={true} />
 			<HeroSection />
 			<section>
 				<div className="cards__container">

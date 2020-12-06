@@ -8,56 +8,82 @@ const changeLogoColor = (color) => {
 	texts.forEach((text) => text.setAttribute("style", `fill: ${color}`));
 };
 
-window.onscroll = () => {
-	if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
-		// thêm .navbar-transparent khỏi component navbar
-		changeLogoColor("#2B3647");
-		document.getElementById("navbar").classList.remove("navbar-transparent");
-	} else {
-		// bỏ .navbar-transparent khỏi component navbar
-		changeLogoColor("#FFFFFF");
-		document.getElementById("navbar").classList.add("navbar-transparent");
+class Navbar extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			destination: "",
+		};
+		this.scrollNavBar = this.scrollNavBar.bind(this);
 	}
-};
 
-function Navbar(props) {
-	// const [button, setButton] = useState(true);
-	const history = useHistory();
-	const [destination, setDestination] = useState("");
+	scrollNavBar() {
+		if (
+			document.body.scrollTop > 10 ||
+			document.documentElement.scrollTop > 10
+		) {
+			// thêm .navbar-transparent khỏi component navbar
+			changeLogoColor("#2B3647");
+			document.getElementById("navbar").classList.remove("navbar-transparent");
+		} else {
+			// bỏ .navbar-transparent khỏi component navbar
+			changeLogoColor("#FFFFFF");
+			document.getElementById("navbar").classList.add("navbar-transparent");
+		}
+	}
 
-	// const closeMobileMenu = () => setClick(false);
-	const handleChangeDestination = ({target}) => {
-		setDestination(target.value);
-	};
+	componentDidMount() {
+		if (this.props.isTrans) {
+			window.addEventListener("scroll", this.scrollNavBar, false);
+		}
+	}
 
-	const handleOnClickSearch = () => history.push("/products");
-	return (
-		<>
-			<nav className="navbar navbar-transparent" id="navbar">
-				<div className="navbar-container">
-					<Link to="/" className="navbar-logo">
-						<Logo />
-					</Link>
-					<form className="nav-search-box">
-						<input
-							type="text"
-							name="search-value"
-							placeholder="Điểm đến mơ ước của bạn?"
-							onChange={handleChangeDestination}
-						/>
-						<button onClick={handleOnClickSearch}>
-							<i class="fas fa-search"></i>
-						</button>
-					</form>
-					<div className="nav-item">
-						<Link to="/hosts" className="nav-links">
-							Trở thành chủ nhà
+	componentWillUnmount() {
+		window.removeEventListener("scroll", this.scrollNavBar, false);
+	}
+
+	render() {
+		function handleChangeDestination(event) {
+			this.setState({destination: event.target.value});
+		}
+
+		function handleOnClickSearch(event) {
+			this.state.history.push("/products");
+			event.preventDefault();
+		}
+
+		return (
+			<>
+				<nav
+					className={`navbar ${this.props.isTrans && "navbar-transparent"}`}
+					id="navbar"
+				>
+					<div className="navbar-container">
+						<Link to="/" className="navbar-logo">
+							<Logo />
 						</Link>
+						<form className="nav-search-box">
+							<input
+								type="text"
+								name="search-value"
+								value={this.state.destination}
+								placeholder="Điểm đến mơ ước của bạn?"
+								onChange={handleChangeDestination}
+							/>
+							<button onClick={handleOnClickSearch}>
+								<i class="fas fa-search"></i>
+							</button>
+						</form>
+						<div className="nav-item">
+							<Link to="/hosts" className="nav-links">
+								Trở thành chủ nhà
+							</Link>
+						</div>
 					</div>
-				</div>
-			</nav>
-		</>
-	);
+				</nav>
+			</>
+		);
+	}
 }
 
 export default Navbar;

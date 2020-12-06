@@ -1,7 +1,6 @@
 import React, {useEffect} from "react";
 import {Link} from "react-router-dom";
 import "./Card.css";
-import Carousel, {CarouselImage} from "./Carousel";
 import ImageSlider, {Image} from "./ImageSlider";
 
 const CardCarousel = (props) => {
@@ -10,8 +9,10 @@ const CardCarousel = (props) => {
 		<>
 			<li>
 				{/* Vô hiệu hóa link có thể ấn được nút chuyển ảnh */}
-				<Link to={canClick ? props.path : "javascript:void(0)"}>
-					{/* <a href="javascript:void(0)"> */}
+				<Link
+					to={props.path}
+					onClick={canClick ? null : (event) => event.preventDefault()}
+				>
 					<ImageSlider label={props.label} />
 					{props.header ? (
 						<h3 className="carousel-header">{props.header}</h3>

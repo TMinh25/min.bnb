@@ -5,8 +5,8 @@ import {Slide} from "react-slideshow-image";
 import {images} from "./images";
 
 class ImageSlider extends React.Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 		this.slideRef = React.createRef();
 		this.back = this.goback.bind(this);
 		this.next = this.goNext.bind(this);
@@ -80,11 +80,7 @@ export const Image = (props) => {
 	return (
 		<>
 			<div className="cards__item">
-				<figure className="cards__item__pic-wrap" data-category={props.label}>
-					{/* <div style={{width: "100%", height: "100%"}}> */}
-					<img src={props.src} className="cards__item__img" />
-					{/* </div> */}
-				</figure>
+				<img src={props.src} className="cards__item__img" />
 			</div>
 		</>
 	);
