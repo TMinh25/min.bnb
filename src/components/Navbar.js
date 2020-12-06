@@ -15,6 +15,8 @@ class Navbar extends React.Component {
 			destination: "",
 		};
 		this.scrollNavBar = this.scrollNavBar.bind(this);
+		this.handleChangeDestination = this.handleChangeDestination.bind(this);
+		// this.handleOnClickSearch = this.handleOnClickSearch.bind(this);
 	}
 
 	scrollNavBar() {
@@ -32,10 +34,21 @@ class Navbar extends React.Component {
 		}
 	}
 
+	handleChangeDestination({target}) {
+		this.setState({destination: target.value});
+	}
+
+	// handleOnClickSearch(event) {
+	// 	// this.state.history.push("/products");
+	// 	this.state.history.push(`/products?search-value=${this.state.destination}`);
+	// 	// event.preventDefault();
+	// }
+
 	componentDidMount() {
 		if (this.props.isTrans) {
 			window.addEventListener("scroll", this.scrollNavBar, false);
 		}
+		changeLogoColor("#2B3647");
 	}
 
 	componentWillUnmount() {
@@ -43,34 +56,28 @@ class Navbar extends React.Component {
 	}
 
 	render() {
-		function handleChangeDestination(event) {
-			this.setState({destination: event.target.value});
-		}
-
-		function handleOnClickSearch(event) {
-			this.state.history.push("/products");
-			event.preventDefault();
-		}
-
 		return (
 			<>
 				<nav
-					className={`navbar ${this.props.isTrans && "navbar-transparent"}`}
+					className={`navbar ${this.props.isTrans ? "navbar-transparent" : ""}`}
 					id="navbar"
 				>
 					<div className="navbar-container">
 						<Link to="/" className="navbar-logo">
 							<Logo />
 						</Link>
-						<form className="nav-search-box">
+						<form action="/near-by" className="nav-search-box">
 							<input
 								type="text"
 								name="search-value"
 								value={this.state.destination}
 								placeholder="Điểm đến mơ ước của bạn?"
-								onChange={handleChangeDestination}
+								onChange={this.handleChangeDestination}
 							/>
-							<button onClick={handleOnClickSearch}>
+							<button
+								type="submit"
+								//  onClick={this.handleOnClickSearch}
+							>
 								<i class="fas fa-search"></i>
 							</button>
 						</form>

@@ -13,7 +13,7 @@ const CardCarousel = (props) => {
 					to={props.path}
 					onClick={canClick ? null : (event) => event.preventDefault()}
 				>
-					<ImageSlider label={props.label} />
+					<ImageSlider label={props.label} images={props.images} />
 					{props.header ? (
 						<h3 className="carousel-header">{props.header}</h3>
 					) : (

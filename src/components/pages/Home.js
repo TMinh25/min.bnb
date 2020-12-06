@@ -22,17 +22,17 @@ function Home() {
 								<CardImage
 									src="images/entire-home.jpg"
 									header="Cả căn hộ"
-									path="/products"
+									path="/near-by"
 								/>
 								<CardImage
 									src="images/cabin&cattage.jpg"
 									header="Cabin & mái nhà tranh"
-									path="/products"
+									path="/near-by"
 								/>
 								<CardImage
 									src="images/unique-stays.jpg"
 									header="Các nơi ở độc nhất"
-									path="/products"
+									path="/near-by"
 								/>
 							</ul>
 						</div>

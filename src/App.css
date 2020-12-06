@@ -10,6 +10,7 @@
 body {
 	max-width: 1390px;
 	margin: auto;
+	overflow-x: hidden;
 }
 
 .clearfix {

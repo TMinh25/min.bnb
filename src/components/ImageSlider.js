@@ -46,15 +46,25 @@ class ImageSlider extends React.Component {
 				>
 					<div className="img-slider-container">
 						<Slide ref={this.slideRef} {...properties}>
-							{images.map((each, index) => (
-								<div key={index} className="slide-container">
-									<img
-										className="lazy slide-img"
-										src={each}
-										alt="destination"
-									/>
-								</div>
-							))}
+							{this.props.images
+								? this.props.images.map((each, index) => (
+										<div key={index} className="slide-container">
+											<img
+												className="lazy slide-img"
+												src={each}
+												alt="destination"
+											/>
+										</div>
+								  ))
+								: images.map((each, index) => (
+										<div key={index} className="slide-container">
+											<img
+												className="lazy slide-img"
+												src={each}
+												alt="destination"
+											/>
+										</div>
+								  ))}
 						</Slide>
 					</div>
 					<div

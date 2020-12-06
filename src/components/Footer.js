@@ -1,7 +1,7 @@
 import React from "react";
 import "./Footer.css";
 import {Button} from "./Button";
-import Logo from './Logo';
+import Logo from "./Logo";
 import {Link} from "react-router-dom";
 
 function Footer() {
@@ -11,7 +11,7 @@ function Footer() {
 		setEmail(target.value);
 	};
 	return (
-		<div className="footer-container">
+		<footer className="footer-container">
 			<section className="footer-subscription">
 				<p className="footer-subscription-heading">
 					Tham gia bản tin để nhận các ưu đãi kỳ nghỉ tốt nhất của chúng tôi
@@ -44,7 +44,14 @@ function Footer() {
 				<div className="footer-link-wrapper">
 					<div class="footer-link-items">
 						<h2>Về Chúng Tôi</h2>
-						<Link to="/">Cách thức hoạt động</Link>
+						<Link
+							to={{
+								pathname: "/near-by",
+								query: {abc: "asdf"},
+							}}
+						>
+							Cách thức hoạt động
+						</Link>
 						<Link to="/">Tin Tức</Link>
 						<Link to="/">Minbnb Gold</Link>
 						<Link to="/">Minbnb Silver</Link>
@@ -127,7 +134,7 @@ function Footer() {
 					</div>
 				</div>
 			</section>
-		</div>
+		</footer>
 	);
 }
 

@@ -16,7 +16,7 @@ function HeroSection() {
 					className="btns"
 					buttonStyle="btn--outline"
 					buttonSize="btn--large"
-					LinkTo="/products"
+					LinkTo="/near-by"
 				>
 					Khám phá gần bạn
 				</Button>
