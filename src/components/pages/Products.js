@@ -55,6 +55,33 @@ const rooms = [
 	},
 ];
 
+const productList = [];
+for (let i = 0; i < 3; i++) {
+	productList.push(
+		<div className="cards__wrapper">
+			<ul className="cards__items_verti">
+				{shuffle(rooms).map((room) => {
+					return (
+						<CardCarousel
+							path="/room-details"
+							title={room.title}
+							description={room.description}
+							address={room.address}
+							host={room.host}
+							rating={room.rating}
+							reviewQuantity={room.reviewQuantity}
+							sale={room.sale}
+							price={room.price}
+							timeStaying={room.timeStaying}
+							images={room.images}
+						/>
+					);
+				})}
+			</ul>
+		</div>
+	);
+}
+
 function shuffle(array) {
 	var currentIndex = array.length,
 		temporaryValue,
@@ -71,6 +98,7 @@ function shuffle(array) {
 	}
 	return array;
 }
+
 const Products = (props) => {
 	const locationState = props.location.state;
 
@@ -125,72 +153,7 @@ const Products = (props) => {
 								<h3 className="area-title">Hạ Long</h3>
 							)}
 						</div>
-						<div className="cards__wrapper">
-							<ul className="cards__items_verti">
-								{shuffle(rooms).map((room) => {
-									return (
-										<CardCarousel
-											path="/room-details"
-											title={room.title}
-											description={room.description}
-											address={room.address}
-											host={room.host}
-											rating={room.rating}
-											reviewQuantity={room.reviewQuantity}
-											sale={room.sale}
-											price={room.price}
-											timeStaying={room.timeStaying}
-											images={room.images}
-										/>
-									);
-								})}
-							</ul>
-							<ul className="cards__items_verti"></ul>
-						</div>
-						<div className="cards__wrapper">
-							<ul className="cards__items_verti">
-								{shuffle(rooms).map((room) => {
-									return (
-										<CardCarousel
-											path="/room-details"
-											title={room.title}
-											description={room.description}
-											address={room.address}
-											host={room.host}
-											rating={room.rating}
-											reviewQuantity={room.reviewQuantity}
-											sale={room.sale}
-											price={room.price}
-											timeStaying={room.timeStaying}
-											images={room.images}
-										/>
-									);
-								})}
-							</ul>
-							<ul className="cards__items_verti"></ul>
-						</div>
-						<div className="cards__wrapper">
-							<ul className="cards__items_verti">
-								{shuffle(rooms).map((room) => {
-									return (
-										<CardCarousel
-											path="/room-details"
-											title={room.title}
-											description={room.description}
-											address={room.address}
-											host={room.host}
-											rating={room.rating}
-											reviewQuantity={room.reviewQuantity}
-											sale={room.sale}
-											price={room.price}
-											timeStaying={room.timeStaying}
-											images={room.images}
-										/>
-									);
-								})}
-							</ul>
-							<ul className="cards__items_verti"></ul>
-						</div>
+						{productList}
 					</div>
 				</div>
 			</main>
