@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from "react";
-import {Link, useHistory} from "react-router-dom";
+import React from "react";
+import {Link} from "react-router-dom";
 import Logo from "./Logo";
 import "./Navbar.css";
 
@@ -45,7 +45,7 @@ class Navbar extends React.Component {
 	// }
 
 	componentDidMount() {
-		if (this.props.isTrans) {
+		if (this.props.transparent) {
 			window.addEventListener("scroll", this.scrollNavBar, false);
 		}
 		changeLogoColor("#2B3647");
@@ -59,7 +59,7 @@ class Navbar extends React.Component {
 		return (
 			<>
 				<nav
-					className={`navbar ${this.props.isTrans ? "navbar-transparent" : ""}`}
+					className={`navbar ${this.props.transparent ? "navbar-transparent" : ""}`}
 					id="navbar"
 				>
 					<div className="navbar-container">
@@ -78,7 +78,7 @@ class Navbar extends React.Component {
 								type="submit"
 								//  onClick={this.handleOnClickSearch}
 							>
-								<i class="fas fa-search"></i>
+								<i className="fas fa-search"></i>
 							</button>
 						</form>
 						<div className="nav-item">

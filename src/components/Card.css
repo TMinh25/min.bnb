@@ -3,10 +3,6 @@
 	background: #fff;
 }
 
-a {
-	text-decoration: none;
-	color: #222222;
-}
 h1 {
 	text-align: center;
 }
@@ -29,7 +25,7 @@ h1 {
 .cards__items_hori {
 	width: 100%;
 	list-style: none;
-	flex-direction: row;
+	flex-direction: column;
 }
 
 .cards__items_hori > li {
@@ -58,9 +54,9 @@ h1 {
 	padding: 10px;
 	margin-bottom: 24px;
 	max-width: 50%;
+	min-height: 200px;
 	display: flex;
 	flex-direction: column;
-	/* max-width: 550px; */
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
@@ -146,17 +142,18 @@ h1 {
 }
 
 .carousel-header {
-	flex: 1;
 	padding: 10px 0;
 	text-align: left;
 	font-size: 20px;
 	font-weight: 600;
+	max-height: 200px;
+	cursor: pointer;
 }
 .carousel-content {
-	max-height: 200px;
 	overflow: hidden;
 	padding: 10px 0;
-	/* flex: 1; */
+	max-height: 200px;
+	cursor: pointer;
 }
 .carousel-content i {
 	color: #0bb5ce;

@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 import "./CityAndState.css";
 
 Array.prototype.shuffle = function () {
@@ -12,7 +13,7 @@ Array.prototype.shuffle = function () {
 
 // Lấy keys của object ra một array
 function getKeys(obj) {
-	var arr = new Array();
+	var arr = [];
 	for (var key in obj) arr.push(key);
 	return arr;
 }
@@ -67,10 +68,18 @@ const CityAndState = () => {
 				return (
 					<>
 						<li>
-							<a href="/products">
+							<Link
+								to={{
+									pathname: "/near-by",
+									state: {
+										city: key,
+										state: cityState[key],
+									},
+								}}
+							>
 								<p className="city">{key}</p>
 								<p className="state">{cityState[key]}</p>
-							</a>
+							</Link>
 						</li>
 					</>
 				);

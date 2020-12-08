@@ -1,6 +1,7 @@
 import React from "react";
 import NavBar from "../Navbar";
 import "./Hosts.css";
+import {Button} from "../Button";
 
 class Hosts extends React.Component {
 	constructor() {
@@ -25,23 +26,32 @@ class Hosts extends React.Component {
 	}
 
 	scrollToTop() {
-		document.body.scrollTop = 0; // For Safari
-		document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+		document.body.scrollTo({
+			top: 180,
+			left: 0,
+			behavior: "smooth",
+		}); // For Safari
+		window.scrollTo({
+			top: 180,
+			left: 0,
+			behavior: "smooth",
+		});
 	}
 
 	componentDidMount() {
 		document.querySelector("#first-more-content").style.display = "none";
 		document.querySelector("#second-more-content").style.display = "none";
+		window.scrollTo(0, 0);
 	}
 
 	render() {
 		return (
 			<>
-				<NavBar isTrans={false} />
+				<NavBar transparent={false} />
 				<div style={{height: 80}} />
 				<div className="host-banner">
 					<div className="host-img">
-						<img src="/images/host-bgimg.jpg" />
+						<img src="/images/host-bgimg.jpg" alt="background" />
 					</div>
 					<div className="host-form">
 						<div className="estimate-earning">
@@ -226,10 +236,8 @@ class Hosts extends React.Component {
 							</p>
 						</div>
 					</section>
-					<section className="3-steps">
-						<h1 className="section-host-title">
-							Chia sẻ phòng trong <span style={{color: "#0BB5CE"}}>3 bước</span>
-						</h1>
+					<section className="three-steps">
+						<h1 className="section-host-title">Chia sẻ phòng trong 3 bước</h1>
 						<ul>
 							<li>
 								<i class="far fa-check-circle"></i>
@@ -255,70 +263,94 @@ class Hosts extends React.Component {
 									hút bởi căn hộ của bạn sẽ xuất hiện. Bạn có thể để lại cho họ
 									bất kỳ câu hỏi nào trước khi họ ở lại.
 								</p>
-								<p onClick={this.scrollToTop}>Bắt đầu cuộc hành trình nào!</p>
 							</li>
 						</ul>
 					</section>
 					<section className="how">
 						<div>
-							<div className="pp">"</div>
+							{/* <div className="pp">"</div> */}
 							<h3>
-								Nhờ có bảo lãnh người chủ, tôi quyết định tham gia Minbnb vì tôi
-								có dự phòng về hư hỏng hoặc sự cố.
+								Nhờ có bảo hiểm của Minbnb, tôi quyết định tham gia vì tôi có dự
+								phòng về hư hỏng hoặc sự cố.
 							</h3>
-							<p>
+							<p className="how-description">
 								Trường Minh một người cho thuê ở Hạ Long vì sự linh hoạt mà
 								chúng tôi cung cấp.
 							</p>
 						</div>
 						<div>
-							<img src="/images/img-1.jpg" width={100} height={100} />
+							<img
+								src="/images/customer-3.jpg"
+								className="section-image"
+								alt="customer 1"
+							/>
 						</div>
 					</section>
 					<section className="covered">
 						<h1 className="section-host-title">Chúng tôi đã bảo vệ bạn</h1>
 						<div className="covered-content">
 							<div>
-								Chúng tôi biết rằng việc tin tưởng những người ở trong nhà bạn
-								là một ưu tiên. Airbnb cho phép bạn đặt ra các yêu cầu nghiêm
-								ngặt về những người có thể đặt phòng và làm quen với khách trước
-								khi họ lưu trú. Tuy nhiên, nếu có điều gì đó xảy ra, chúng tôi
-								sẽ hỗ trợ bạn. Với bảo vệ thiệt hại của chúng tôi bao gồm thiệt
-								hại tài sản và Bảo hiểm thiệt hại của chúng tôi đối với trách
-								nhiệm pháp lý, bạn được hỗ trợ xuyên suốt.
+								<p>
+									Chúng tôi biết rằng việc tin tưởng những người ở trong nhà bạn
+									là một ưu tiên. Airbnb cho phép bạn đặt ra các yêu cầu nghiêm
+									ngặt về những người có thể đặt phòng và làm quen với khách
+									trước khi họ lưu trú. <br />
+									<br /> Tuy nhiên, nếu có điều gì đó xảy ra, chúng tôi sẽ hỗ
+									trợ bạn. Với bảo vệ thiệt hại của chúng tôi bao gồm thiệt hại
+									tài sản và Bảo hiểm thiệt hại của chúng tôi đối với trách
+									nhiệm pháp lý, bạn được hỗ trợ xuyên suốt.
+								</p>
 							</div>
-							<div>
+							<ul>
 								<li>
-									<i class="fas fa-check" />
-									Có quyền được yêu cầu căn cước trước khi đặt phòng
+									<p>
+										<i class="fas fa-check" />
+										Có quyền được yêu cầu căn cước trước khi đặt phòng
+									</p>
 								</li>
 								<li>
-									<i class="fas fa-check" />
-									Quy tắc tại gia mà khách phải đồng ý
+									<p>
+										<i class="fas fa-check" />
+										Quy tắc tại gia mà khách phải đồng ý
+									</p>
 								</li>
 								<li>
-									<i class="fas fa-check" />
-									Cơ hội được đọc lại bài đánh giá từ các chuyến đi trước
+									<p>
+										<i class="fas fa-check" />
+										Cơ hội được đọc lại bài đánh giá từ các chuyến đi trước
+									</p>
 								</li>
 								<li>
-									<i class="fas fa-check" />
-									Bảo hiểm miễn phí 1 triệu $ cho thiệt hại tài sản
+									<p>
+										<i class="fas fa-check" />
+										Bảo hiểm miễn phí 1 triệu $ cho thiệt hại tài sản
+									</p>
 								</li>
 								<li>
-									<i class="fas fa-check" />
-									Bảo hiểm trách nhiệm miễn phí 1 triệu $
+									<p>
+										<i class="fas fa-check" />
+										Bảo hiểm trách nhiệm miễn phí 1 triệu $
+									</p>
 								</li>
 								<li>
-									<i class="fas fa-check" />
-									Hỗ trợ khách hàng toàn cầu 24/7
+									<p>
+										<i class="fas fa-check" />
+										Hỗ trợ người dùng toàn cầu 24/
+									</p>
 								</li>
-							</div>
+							</ul>
 						</div>
 					</section>
-					<img src="/images/img-2.jpg" width={100} height={100} />
+					<div style={{height: "60px"}} />
+					<img
+						src="/images/customer-4.jpg"
+						style={{width: "100%"}}
+						alt="group me"
+					/>
+					<div style={{height: "60px"}} />
 					<section className="payment">
 						<h1 className="section-host-title">Thanh toán đơn giản</h1>
-						<div className="payment-list">
+						<ul className="payment-list">
 							<li>
 								<h4>Tính phí những gì bạn muốn</h4>
 								<p>
@@ -342,28 +374,32 @@ class Hosts extends React.Component {
 									ngay sang tài khoản của bạn trên Paypal, tiền mặt hoặc các
 									phương thức bạn muốn.
 								</p>
+								<div style={{height: "10px"}} />
+								<p className="fake-link" onClick={this.scrollToTop}>
+									Học cách kiếm tiền trên Minbnb
+								</p>
 							</li>
-						</div>
+						</ul>
 					</section>
 					<section className="how">
 						<div>
-							<div className="pp">"</div>
-							<h3>
-								Nhờ có bảo lãnh người chủ, tôi quyết định tham gia Minbnb vì tôi
-								có dự phòng về hư hỏng hoặc sự cố.
-							</h3>
-							<p>
-								Trường Minh một người cho thuê ở Hạ Long vì sự linh hoạt mà
-								chúng tôi cung cấp.
-							</p>
+							<img
+								src="/images/customer-2.jpg"
+								className="section-image"
+								alt="customer 2"
+							/>
 						</div>
 						<div>
-							<img src="/images/img-1.jpg" width={100} height={100} />
+							<h3>
+								Cho thuê trên Minbnb giúp tôi có được căn bếp mới và một số nâng
+								cấp khác.
+							</h3>
+							<p>Trường Minh cho thuê tại Hạ Long để kiếm thêm thu nhập phụ.</p>
 						</div>
 					</section>
 					<section className="about">
-						<h1>Về chúng tôi</h1>
-						<div>
+						<h1 className="section-host-title">Về chúng tôi</h1>
+						<ul>
 							<li>
 								<h4>Minbnb là gì?</h4>
 								<p>
@@ -382,9 +418,26 @@ class Hosts extends React.Component {
 									của mình hoặc làm cả hai. Thời điểm bắt đầu là tùy thuộc vào
 									bạn.
 								</p>
+								<div style={{height: "10px"}} />
+								<p className="fake-link" onClick={this.scrollToTop}>
+									Bắt đầu kiếm tiền trên Minbnb
+								</p>
 							</li>
-						</div>
+						</ul>
 					</section>
+					<div className="ready-to-earn">
+						<img src="/images/ready-image.jpg" alt="ready?" />
+						<div className="ready-button">
+							<h1>Bạn đã sẵn sàng chưa?</h1>
+							<Button
+								buttonStyle="btn--primary"
+								buttonSize="btn--large"
+								onClick={this.scrollToTop}
+							>
+								Bắt đầu kiếm tiền thôi
+							</Button>
+						</div>
+					</div>
 				</main>
 			</>
 		);

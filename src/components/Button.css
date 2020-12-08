@@ -1,29 +1,25 @@
-:root {
-	--primary: #fff;
-}
-
 .btn {
-	padding: 8px 20px;
-	outline: none;
+	padding: 9px 20px !important;
+	outline: none !important;
 	border: none;
 	cursor: pointer;
 	border-radius: 5px;
 }
 
 .btn-black {
-	border: 1px solid #202020;
+	border: 1px solid #202020 !important;
 	background-color: #202020;
-	color: #202020;
+	color: #202020 !important;
 }
 
 .btn-white {
-	border: 1px solid #fff;
+	border: 2px solid #fff !important;
 	background-color: #fff;
-	color: #fff;
+	color: #fff !important;
 }
 
 .btn--primary {
-	background-color: var(--primary);
+	background-color: #fff;
 	color: #242424;
 }
 
@@ -33,7 +29,7 @@
 	transition: all 0.3s ease-out;
 }
 
-.btn--merge { 
+.btn--merge {
 	border-top-left-radius: 0;
 	border-bottom-left-radius: 0;
 	border-left: none;
@@ -57,10 +53,10 @@
 
 .btn-white:hover {
 	background: #fff;
-	color: #242424;
+	color: #242424 !important;
 }
 
 .btn-black:hover {
 	background: #202020;
-	color: #fff;
+	color: #fff !important;
 }

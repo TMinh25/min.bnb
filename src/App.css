@@ -7,10 +7,26 @@
 		Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
+body::-webkit-scrollbar {
+	display: none;
+}
+
 body {
 	max-width: 1390px;
-	margin: auto;
+	margin: auto !important;
 	overflow-x: hidden;
+
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+
+a {
+	text-decoration: none !important;
+	color: #222222 !important;
+}
+
+p {
+	margin: 0;
 }
 
 .clearfix {
@@ -23,7 +39,7 @@ body {
 	display: table;
 }
 
-.home,
+/* .home,
 .services,
 .products,
 .hosts,
@@ -33,9 +49,9 @@ body {
 	align-items: center;
 	justify-content: center;
 	font-size: 3rem;
-}
+} */
 
-.services {
+/* .services {
 	background-image: url("/images/img-2.jpg");
 	background-position: center;
 	background-size: cover;
@@ -69,7 +85,7 @@ body {
 	background-repeat: no-repeat;
 	color: #fff;
 	font-size: 100px;
-}
+} */
 
 .destination-tag {
 	background-color: #0bb5ce;
@@ -77,25 +93,27 @@ body {
 	padding: 0 10px;
 }
 
-
-
 #map {
-  width: 100vw;
-  height: 100vh;
+	width: 100vw;
+	height: 100vh;
 }
 
 .control-panel {
-  position: absolute;
-  top: 0;
-  right: 0;
-  max-width: 320px;
-  background: #fff;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-  padding: 12px 24px;
-  margin: 20px;
-  font-size: 13px;
-  line-height: 2;
-  color: #6b6b76;
-  text-transform: uppercase;
-  outline: none;
+	position: absolute;
+	top: 0;
+	right: 0;
+	max-width: 320px;
+	background: #fff;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+	padding: 12px 24px;
+	margin: 20px;
+	font-size: 13px;
+	line-height: 2;
+	color: #6b6b76;
+	text-transform: uppercase;
+	outline: none;
+}
+
+.hidden {
+	visibility: hidden;
 }

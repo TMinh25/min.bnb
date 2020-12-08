@@ -38,10 +38,10 @@ class ImageSlider extends React.Component {
 				<div
 					className="slider-wrap"
 					onMouseEnter={() => {
-						this.state.showNav = true;
+						this.setState({showNav: true});
 					}}
 					onMouseLeave={() => {
-						this.state.showNav = false;
+						this.setState({showNav: false});
 					}}
 				>
 					<div className="img-slider-container">
@@ -74,10 +74,12 @@ class ImageSlider extends React.Component {
 						<img
 							src="images/left-arrow.svg"
 							onClick={() => this.slideRef.current.goBack()}
+							alt="left arrow"
 						/>
 						<img
 							src="images/right-arrow.svg"
 							onClick={() => this.slideRef.current.goNext()}
+							alt="right arrow"
 						/>
 					</div>
 				</div>
@@ -90,7 +92,7 @@ export const Image = (props) => {
 	return (
 		<>
 			<div className="cards__item">
-				<img src={props.src} className="cards__item__img" />
+				<img src={props.src} className="cards__item__img" alt="" />
 			</div>
 		</>
 	);

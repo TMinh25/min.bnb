@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import "./App.css";
 import Home from "./components/pages/Home";
@@ -8,6 +7,7 @@ import Services from "./components/pages/Services";
 import Products from "./components/pages/Products";
 import Hosts from "./components/pages/Hosts";
 import NearBy from "./components/pages/NearBy";
+import RoomDetails from "./components/pages/RoomDetails";
 
 function App() {
 	return (
@@ -19,6 +19,11 @@ function App() {
 					<Route name="products" path="/products" component={Products} />
 					<Route name="nearby" path="/near-by" component={NearBy} />
 					<Route name="hosts" path="/hosts" component={Hosts} />
+					<Route
+						name="room-details"
+						path="/room-details"
+						component={RoomDetails}
+					/>
 				</Switch>
 				<Footer />
 			</Router>

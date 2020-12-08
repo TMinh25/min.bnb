@@ -2,10 +2,9 @@ import React, {useState, useRef, useCallback} from "react";
 import NavBar from "../Navbar";
 import MapGL, {NavigationControl, GeolocateControl} from "react-map-gl";
 import Geocoder from "react-map-gl-geocoder";
-import CardCarousel from "../Card";
 import "./NearBy.css";
-import {Lily, CasaIndigo, SaddlePeak, Sextant} from "../images";
 import {Link} from "react-router-dom";
+import ProductForNearBy from "../ProductForNearBy";
 
 const MAPBOX_TOKEN =
 	"pk.eyJ1IjoidHJ1b25nbWluaCIsImEiOiJja2liaDg0OWIwemlrMzF0Z29xODlibXV6In0.EcveCumo02PncrX33I9yDw"; // Set your mapbox token here
@@ -16,53 +15,7 @@ const geolocateStyle = {
 	marginTop: 10,
 };
 
-const roomsArr = [
-	[
-		{
-			title: "Lily - LAURA Studio❣️CENTER of BADINH❣️",
-			description: "1 Bedroom Private Pool Villa - Entire Villa",
-			rating: 4.53,
-			reviewQuantity: 67,
-			sale: 999,
-			price: 10,
-			timeStaying: "đêm",
-			images: Lily,
-		},
-		{
-			title:
-				"Sextant | Waterfront Chateau | Pool + Hot Tub | Directly on the Miami River",
-			description: "2 Bedroom with King Bed - Pool - Hot tub",
-			rating: 4.73,
-			reviewQuantity: 69,
-			sale: 1299,
-			price: 269,
-			timeStaying: "đêm",
-			images: Sextant,
-		},
-	],
-	[
-		{
-			title: "Casa Indigo - Costa Rica",
-			description: "Spanish Colonial villa on the bay",
-			rating: 4.9,
-			reviewQuantity: 2,
-			price: 1100,
-			timeStaying: "đêm",
-			images: CasaIndigo,
-		},
-		{
-			title: "Saddle Peak - California",
-			description: "Luxury stay in Topanga, California, United States",
-			rating: 5.0,
-			reviewQuantity: 22,
-			price: 1200,
-			timeStaying: "đêm",
-			images: SaddlePeak,
-		},
-	],
-];
-
-const NearBy = () => {
+const NearBy = (props) => {
 	const [viewport, setViewport] = useState({
 		latitude: 21.018434,
 		longitude: 106.816845,
@@ -81,6 +34,7 @@ const NearBy = () => {
 			...newViewport,
 			...geocoderDefaultOverrides,
 		});
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 	const [mapStyle, setMapStyle] = useState(
 		"mapbox://styles/truongminh/ckicqzsql0bpi1atb3byyzfky"
@@ -89,22 +43,31 @@ const NearBy = () => {
 
 	const changeMapStyle = () => {
 		setMapStyle(
-			mapStyle == "mapbox://styles/truongminh/ckicqzsql0bpi1atb3byyzfky"
+			mapStyle === "mapbox://styles/truongminh/ckicqzsql0bpi1atb3byyzfky"
 				? "mapbox://styles/truongminh/ckicrgoqu1dfd19n19g949z74"
 				: "mapbox://styles/truongminh/ckicqzsql0bpi1atb3byyzfky"
 		);
 	};
+
+	const handleOnResultsMap = ({results}) => {};
+
+	const locationState = props.location.state;
+
 	return (
 		<>
-			<NavBar isTrans={false} />
+			<NavBar transparent={false} />
 			{/* <h1 className="products">Products</h1> */}
 			<div style={{height: 80}} />
 			{/* <div className="products-container"> */}
-			<main>
+			<main className="near-by-main">
 				<div className="area-container">
 					<div className="nearby-title">
 						<p>300+ địa điểm</p>
-						<h1>Những nơi ở gần bạn</h1>
+						{locationState && locationState.city ? (
+							<h1>{locationState.city}</h1>
+						) : (
+							<h1>Những địa điểm gần bạn</h1>
+						)}
 						<ol>
 							<li>
 								<Link className="area-show-all filter" to="/products">
@@ -135,68 +98,44 @@ const NearBy = () => {
 					</div>
 					<div>
 						<div className="area-header">
-							<h3 className="area-title">Hạ Long</h3>
-							<Link className="area-show-all" to="/products">
+							{locationState && locationState.city ? (
+								<h3 className="area-title">{locationState.city}</h3>
+							) : (
+								<h3 className="area-title">Hạ Long</h3>
+							)}
+							<Link
+								className="area-show-all"
+								to={{
+									pathname: "/products",
+									state: locationState,
+								}}
+							>
 								Hiện tất cả
 							</Link>
 						</div>
-						<div className="cards__wrapper">
-							{roomsArr.map((rooms) => {
-								return (
-									<ul className="cards__items_verti">
-										{rooms.map((room) => {
-											return (
-												<CardCarousel
-													path="/products"
-													title={room.title}
-													description={room.description}
-													rating={room.rating}
-													reviewQuantity={room.reviewQuantity}
-													sale={room.sale}
-													price={room.price}
-													timeStaying={room.timeStaying}
-													images={room.images}
-												/>
-											);
-										})}
-									</ul>
-								);
-							})}
-							<ul className="cards__items_verti"></ul>
-						</div>
-						<div>
-							<div className="area-header">
-								<h3 className="area-title">Hội An</h3>
-								<Link className="area-show-all" to="/products">
-									Hiện tất cả
-								</Link>
-							</div>
-							<div className="cards__wrapper">
-								{roomsArr.map((rooms) => {
-									return (
-										<ul className="cards__items_verti">
-											{rooms.map((room) => {
-												return (
-													<CardCarousel
-														path="/products"
-														title={room.title}
-														description={room.description}
-														rating={room.rating}
-														reviewQuantity={room.reviewQuantity}
-														sale={room.sale}
-														price={room.price}
-														timeStaying={room.timeStaying}
-														images={room.images}
-													/>
-												);
-											})}
-										</ul>
-									);
-								})}
-								<ul className="cards__items_verti"></ul>
-							</div>
-						</div>
+						<ProductForNearBy />
+						<ProductForNearBy />
+						<ProductForNearBy />
 					</div>
+
+					<Link
+						className="area-show-all"
+						style={{
+							margin: "20px auto",
+							display: "block",
+							width: "230px",
+							textAlign: "center",
+						}}
+						to={{
+							pathname: "/products",
+							state: locationState,
+						}}
+					>
+						Xem tất cả tại{" "}
+						{locationState && locationState.city
+							? locationState.city
+							: "Hạ Long"}
+					</Link>
 				</div>
 				<div className="map-container">
 					<div
@@ -222,9 +161,16 @@ const NearBy = () => {
 							mapRef={mapRef}
 							containerRef={geocoderContainerRef}
 							onViewportChange={handleGeocoderViewportChange}
-							// inputValue={this.props.location.query.search-value}
+							inputValue={
+								locationState && locationState.city ? locationState.city : ""
+							}
+							clearOnBlur={true}
+							clearAndBlurOnEsc={true}
+							limit={6}
+							marker={true}
 							mapboxApiAccessToken={MAPBOX_TOKEN}
 							position="top-left"
+							// onResults={handleOnResultsMap}
 						/>
 
 						<div className="map-nav" style={navStyle}>
@@ -240,7 +186,7 @@ const NearBy = () => {
 							</div>
 							<div>
 								<button className="change-map-btn" onClick={changeMapStyle}>
-									<i class="fas fa-map"></i>
+									<i className="fas fa-map"></i>
 								</button>
 							</div>
 						</div>

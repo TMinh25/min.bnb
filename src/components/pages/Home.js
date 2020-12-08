@@ -4,14 +4,18 @@ import "../../App.css";
 import "../Card.css";
 import HeroSection from "../HeroSection";
 import {Button} from "../Button";
-import CardCarousel, {CardImage} from "../Card";
+import {CardImage} from "../Card";
 import CityAndState from "../CityAndState";
 import Tabs from "../Tabs";
 
 function Home() {
+	React.useEffect(() => {
+		// window.scrollTo(0, 0);
+	}, []);
+
 	return (
 		<>
-			<NavBar isTrans={true} />
+			<NavBar transparent={true} />
 			<HeroSection />
 			<section>
 				<div className="cards__container">
@@ -40,7 +44,11 @@ function Home() {
 				</div>
 			</section>
 			<div className="cards__container" style={{padding: 10, height: 420}}>
-				<img src="images/giftcard.jpg" style={{borderRadius: 15}} />
+				<img
+					src="images/giftcard.jpg"
+					style={{borderRadius: 15}}
+					alt="gift card"
+				/>
 				<div className="giftcard-content">
 					<h3>
 						Món quà hoàn hảo <br /> cho mùa lễ hội?

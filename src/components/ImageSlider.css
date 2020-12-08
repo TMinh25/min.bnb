@@ -70,11 +70,12 @@ h3 {
 	color: transparent;
 	text-align: center;
 	cursor: pointer;
-	border: 1px white solid;
+	border: 1px white solid !important;
+	background-color: transparent !important;
 	border-radius: 100px;
 }
 .indicator.active {
-	background: #fff;
+	background: #fff !important;
 	color: #fff;
 }
 .slide-img {
@@ -89,7 +90,6 @@ h3 {
 }
 
 .slider-wrap {
-	flex: 1;
 	position: relative;
 	min-width: 300px;
 	max-width: 550px;
