@@ -88,8 +88,7 @@ function Footer() {
 						</a>
 					</div>
 					<small className="website-rights">
-						<span>MIN.BNB © 2020</span>
-						<span>Nguyễn Trường Minh</span>
+						<span>MIN.BNB © 2020 - Nguyễn Trường Minh</span>
 					</small>
 					<div className="social-icons">
 						<a
