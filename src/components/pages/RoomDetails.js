@@ -11,7 +11,8 @@ import ProgressBar from "../ProgressBar";
 import Avatar from "avataaars";
 import {Lily, Sextant, CasaIndigo, SaddlePeak} from "../images";
 import CardCarousel from "../Card";
-import QRCode from "qrcode.react";
+// import QRCode from "qrcode.react";
+import QRCode from "react-qr-code";
 
 const MAPBOX_TOKEN =
 	"pk.eyJ1IjoidHJ1b25nbWluaCIsImEiOiJja2liaDg0OWIwemlrMzF0Z29xODlibXV6In0.EcveCumo02PncrX33I9yDw"; // Set your mapbox token here
@@ -192,7 +193,7 @@ const RoomDetails = (props) => {
 	const [timeRange, setTimeRange] = useState();
 	const [guests, setGuests] = useState(1);
 
-	const valueQRCode = useState(generateReserveNumber());
+	const valueQRCode = generateReserveNumber();
 
 	const [viewport, setViewport] = useState({
 		latitude: 21.018434,

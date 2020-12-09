@@ -55,9 +55,6 @@ const CardCarousel = (props) => {
 };
 
 export const CardImage = (props) => {
-	const handleClick = () => {
-		window.location.href = props.path;
-	};
 	return (
 		<>
 			<li>
