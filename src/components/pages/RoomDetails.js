@@ -228,7 +228,7 @@ const RoomDetails = (props) => {
 		);
 	};
 
-	const handleClickAddress = () => {};
+	// const handleClickAddress = () => {};
 
 	const handleOnSelectCalendar = (startDate, endDate, validDateRange) => {
 		// console.log(startDate, endDate, validDateRange.length);
@@ -259,11 +259,11 @@ const RoomDetails = (props) => {
 		return Math.random() * (max - min) + min;
 	};
 
-	useEffect(() => {
-		// window.scrollTo(0, 0);
-		console.log("room details:");
-		console.log(roomDetails);
-	}, [roomDetails]);
+	// useEffect(() => {
+	// 	// window.scrollTo(0, 0);
+	// 	console.log("room details:");
+	// 	console.log(roomDetails);
+	// }, [roomDetails]);
 
 	useEffect(() => {
 		window.scrollTo(0, 0);
@@ -310,12 +310,9 @@ const RoomDetails = (props) => {
 								: " Chưa có review"}
 
 							{roomDetails.address ? (
-								<span onClick={handleClickAddress} className="address-link">
-									{" "}
-									· {roomDetails.address}
-								</span>
+								<span className="address-link"> · {roomDetails.address}</span>
 							) : (
-								<span onClick={handleClickAddress} className="address-link">
+								<span className="address-link">
 									{" "}
 									· Thành phố Hạ Long, Quảng Ninh, Việt Nam
 								</span>
