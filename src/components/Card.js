@@ -64,13 +64,11 @@ export const CardImage = (props) => {
 				<Image src={props.src} />
 				{props.header ? (
 					<Link to={props.path}>
-						<h3 className="carousel-header" onClick={handleClick}>
-							{props.header}
-						</h3>
+						<h3 className="carousel-header">{props.header}</h3>
 					</Link>
 				) : (
 					<Link to={props.path}>
-						<div className="carousel-content" onClick={handleClick}>
+						<div className="carousel-content">
 							<p>
 								<i className="fas fa-star" />
 								{props.rating && props.reviewQuantity

@@ -190,7 +190,6 @@ const RoomDetails = (props) => {
 	const [startDate, setStartDate] = useState();
 	const [endDate, setEndDate] = useState();
 	const [timeRange, setTimeRange] = useState();
-	const [total, setTotal] = useState();
 	const [guests, setGuests] = useState(1);
 
 	const valueQRCode = useState(generateReserveNumber());
@@ -236,8 +235,7 @@ const RoomDetails = (props) => {
 		setStartDate(startDate);
 		setEndDate(endDate);
 		setTimeRange(validDateRange.length);
-		setTotal(roomDetails.price * validDateRange.length);
-		console.log(startDate, endDate, total);
+		console.log(startDate, endDate);
 	};
 
 	const handleMinusGuests = () => {
@@ -349,11 +347,20 @@ const RoomDetails = (props) => {
 								<div className="avatar-host">
 									<span class="helper"></span>
 									{Math.floor(Math.random() * 3) === 0 ? (
-										<img src="https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortFlat&accessoriesType=Sunglasses&hairColor=SilverGray&facialHairType=MoustacheMagnum&facialHairColor=BrownDark&clotheType=CollarSweater&clotheColor=Gray01&eyeType=Cry&eyebrowType=SadConcernedNatural&mouthType=Eating&skinColor=Light" alt="avatar" />
+										<img
+											src="https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortFlat&accessoriesType=Sunglasses&hairColor=SilverGray&facialHairType=MoustacheMagnum&facialHairColor=BrownDark&clotheType=CollarSweater&clotheColor=Gray01&eyeType=Cry&eyebrowType=SadConcernedNatural&mouthType=Eating&skinColor=Light"
+											alt="avatar"
+										/>
 									) : Math.floor(Math.random() * 2) === 0 ? (
-										<img src="https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortCurly&accessoriesType=Sunglasses&hairColor=Black&facialHairType=Blank&facialHairColor=Platinum&clotheType=ShirtVNeck&clotheColor=Blue02&graphicType=Resist&eyeType=Side&eyebrowType=AngryNatural&mouthType=Serious&skinColor=Black" alt="avatar" />
+										<img
+											src="https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortCurly&accessoriesType=Sunglasses&hairColor=Black&facialHairType=Blank&facialHairColor=Platinum&clotheType=ShirtVNeck&clotheColor=Blue02&graphicType=Resist&eyeType=Side&eyebrowType=AngryNatural&mouthType=Serious&skinColor=Black"
+											alt="avatar"
+										/>
 									) : (
-										<img src="https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShaggyMullet&accessoriesType=Blank&hatColor=Black&hairColor=Auburn&facialHairType=BeardLight&facialHairColor=Red&clotheType=GraphicShirt&clotheColor=Black&graphicType=Cumbia&eyeType=Dizzy&eyebrowType=RaisedExcitedNatural&mouthType=Tongue&skinColor=Tanned" alt="avatar" />
+										<img
+											src="https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShaggyMullet&accessoriesType=Blank&hatColor=Black&hairColor=Auburn&facialHairType=BeardLight&facialHairColor=Red&clotheType=GraphicShirt&clotheColor=Black&graphicType=Cumbia&eyeType=Dizzy&eyebrowType=RaisedExcitedNatural&mouthType=Tongue&skinColor=Tanned"
+											alt="avatar"
+										/>
 									)}
 								</div>
 							</div>
@@ -567,14 +574,14 @@ const RoomDetails = (props) => {
 												<p onClick={handlePlusGuests}>+</p>
 											</div>
 										</div>
-										{total && (
+										{timeRange && (
 											<>
 												<div className="fee">
 													<p>
 														${roomDetails.price} x {timeRange}{" "}
 														{roomDetails.timeStaying}
 													</p>
-													<p>${total}</p>
+													<p>${timeRange * roomDetails.price}</p>
 												</div>
 												<div className="fee">
 													<p>Phí dịch vụ</p>
@@ -582,7 +589,7 @@ const RoomDetails = (props) => {
 												</div>
 												<div className="total-cost">
 													<p>Tổng Cộng: </p>
-													<p>${total}</p>
+													<p>${timeRange * roomDetails.price}</p>
 												</div>
 											</>
 										)}
