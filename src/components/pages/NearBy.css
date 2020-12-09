@@ -84,6 +84,10 @@
 	margin: 0 5px;
 }
 
+.change-map-btn-container {
+	margin-top: 10px;
+}
+
 .change-map-btn {
 	border: none;
 	height: 29px;
@@ -94,7 +98,6 @@
 	color: #333333;
 	box-sizing: border-box;
 	background-color: white;
-	margin-top: 10px;
 	outline: none;
 	cursor: pointer;
 }

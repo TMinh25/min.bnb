@@ -188,7 +188,7 @@ const NearBy = (props) => {
 									trackUserLocation={true}
 								/>
 							</div>
-							<div>
+							<div className="change-map-btn-container">
 								<button className="change-map-btn" onClick={changeMapStyle}>
 									<i className="fas fa-map"></i>
 								</button>
