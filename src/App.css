@@ -7,8 +7,12 @@
 		Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
+html {
+	scroll-behavior: smooth;
+}
+
 body::-webkit-scrollbar {
-	display: none;
+	/* display: none; */
 }
 
 body {
@@ -16,8 +20,8 @@ body {
 	margin: auto !important;
 	overflow-x: hidden;
 
-	-ms-overflow-style: none;
-	scrollbar-width: none;
+	/* -ms-overflow-style: none;
+	scrollbar-width: none; */
 }
 
 a {

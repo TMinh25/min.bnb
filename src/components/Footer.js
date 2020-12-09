@@ -79,7 +79,11 @@ function Footer() {
 			<section className="social-media">
 				<div className="social-media-wrap">
 					<div className="footer-logo">
-						<a href="/" className="social-logo">
+						<a
+							className="social-logo"
+							onClick={() => window.scrollTo(0, 0)}
+							title="scroll to top"
+						>
 							<Logo />
 						</a>
 					</div>

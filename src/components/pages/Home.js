@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import NavBar from "../Navbar";
 import "../../App.css";
 import "../Card.css";
@@ -9,8 +9,8 @@ import CityAndState from "../CityAndState";
 import Tabs from "../Tabs";
 
 function Home() {
-	React.useEffect(() => {
-		// window.scrollTo(0, 0);
+	useEffect(() => {
+		window.scrollTo(0, 0);
 	}, []);
 
 	return (

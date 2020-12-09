@@ -119,27 +119,57 @@ const Products = (props) => {
 						<h1>Gợi ý</h1>
 						<ol>
 							<li>
-								<Link className="area-show-all filter" to="/products">
+								<Link
+									className="area-show-all filter"
+									to={{
+										pathname: "/products",
+										state: locationState,
+									}}
+								>
 									Đặt phòng ngay
 								</Link>
 							</li>
 							<li>
-								<Link className="area-show-all filter" to="/products">
+								<Link
+									className="area-show-all filter"
+									to={{
+										pathname: "/products",
+										state: locationState,
+									}}
+								>
 									Cả căn hộ
 								</Link>
 							</li>
 							<li>
-								<Link className="area-show-all filter" to="/products">
+								<Link
+									className="area-show-all filter"
+									to={{
+										pathname: "/products",
+										state: locationState,
+									}}
+								>
 									Villa
 								</Link>
 							</li>
 							<li>
-								<Link className="area-show-all filter" to="/products">
+								<Link
+									className="area-show-all filter"
+									to={{
+										pathname: "/products",
+										state: locationState,
+									}}
+								>
 									Chấp nhận vật nuôi
 								</Link>
 							</li>
 							<li>
-								<Link className="area-show-all filter" to="/products">
+								<Link
+									className="area-show-all filter"
+									to={{
+										pathname: "/products",
+										state: locationState,
+									}}
+								>
 									Thêm bộ lọc...
 								</Link>
 							</li>

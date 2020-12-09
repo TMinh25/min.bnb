@@ -59,14 +59,16 @@ class Navbar extends React.Component {
 		return (
 			<>
 				<nav
-					className={`navbar ${this.props.transparent ? "navbar-transparent" : ""}`}
+					className={`navbar ${
+						this.props.transparent ? "navbar-transparent" : ""
+					}`}
 					id="navbar"
 				>
 					<div className="navbar-container">
 						<Link to="/" className="navbar-logo">
 							<Logo />
 						</Link>
-						<form action="/near-by" className="nav-search-box">
+						<form className="nav-search-box">
 							<input
 								type="text"
 								name="search-value"
@@ -74,12 +76,21 @@ class Navbar extends React.Component {
 								placeholder="Điểm đến mơ ước của bạn?"
 								onChange={this.handleChangeDestination}
 							/>
-							<button
+							{/* <button
 								type="submit"
 								//  onClick={this.handleOnClickSearch}
+							> */}
+							<Link
+								className="search-button"
+								type="submit"
+								to={{
+									pathname: "/near-by",
+									state: {city: this.state.destination},
+								}}
 							>
 								<i className="fas fa-search"></i>
-							</button>
+							</Link>
+							{/* </button> */}
 						</form>
 						<div className="nav-item">
 							<Link to="/hosts" className="nav-links">

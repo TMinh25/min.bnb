@@ -1,0 +1,78 @@
+.main-user-details {
+	padding: 0 120px;
+	display: flex;
+	margin: 30px 0;
+}
+
+.left-card {
+	float: left;
+	width: 25%;
+	height: 600px;
+	padding: 20px;
+	border: 1px solid #dddddd !important;
+	border-radius: 15px;
+	margin-right: 37px;
+}
+
+.left-card-info > div {
+	padding: 20px 0;
+}
+.left-card-info > div:first-child {
+	border-bottom: 1px solid #dddddd !important;
+}
+
+.left-card-info li {
+	font-size: 16px;
+	font-weight: 600;
+	padding: 5px 0;
+}
+
+.left-card-info li i {
+	font-size: 20px;
+}
+
+.confirmed h4 {
+	text-align: left;
+}
+.main-content-user-details {
+	float: right;
+	width: 75%;
+	padding: 20px 30px;
+	/* border: 1px solid #dddddd !important; */
+	/* border-radius: 15px; */
+}
+
+.main-content-user-details h5 {
+	margin: 40px 0 30px;
+}
+
+.user-hello h2 {
+	margin-bottom: 4px;
+}
+
+.user-hello p {
+	font-size: 14px;
+	color: #aaaaaa;
+}
+
+.user-bio > li {
+	margin-bottom: 10px;
+}
+
+.user-bio > li i{
+	font-size: 18px;
+	width: 30px;
+}
+
+.user-bio-detail {
+	margin-bottom: 30px;
+}
+
+#more {
+	display: none;
+}
+
+#show-more-less-btn {
+	cursor: pointer;
+	font-weight: 600;
+}

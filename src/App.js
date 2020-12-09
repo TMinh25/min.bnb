@@ -8,6 +8,7 @@ import Products from "./components/pages/Products";
 import Hosts from "./components/pages/Hosts";
 import NearBy from "./components/pages/NearBy";
 import RoomDetails from "./components/pages/RoomDetails";
+import UserDetails from "./components/pages/UserDetails";
 
 function App() {
 	return (
@@ -23,6 +24,11 @@ function App() {
 						name="room-details"
 						path="/room-details"
 						component={RoomDetails}
+					/>
+					<Route
+						name="user-details"
+						path="/user-details"
+						component={UserDetails}
 					/>
 				</Switch>
 				<Footer />

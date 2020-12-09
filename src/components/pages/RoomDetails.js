@@ -11,6 +11,7 @@ import ProgressBar from "../ProgressBar";
 import Avatar from "avataaars";
 import {Lily, Sextant, CasaIndigo, SaddlePeak} from "../images";
 import CardCarousel from "../Card";
+import QRCode from "qrcode.react";
 
 const MAPBOX_TOKEN =
 	"pk.eyJ1IjoidHJ1b25nbWluaCIsImEiOiJja2liaDg0OWIwemlrMzF0Z29xODlibXV6In0.EcveCumo02PncrX33I9yDw"; // Set your mapbox token here
@@ -173,6 +174,16 @@ function shuffle(array) {
 	return array;
 }
 
+function generateReserveNumber() {
+	var length = 16,
+		charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+		retVal = "";
+	for (var i = 0, n = charset.length; i < length; ++i) {
+		retVal += charset.charAt(Math.floor(Math.random() * n));
+	}
+	return retVal;
+}
+
 const RoomDetails = (props) => {
 	const roomDetails = props.location.state;
 
@@ -182,13 +193,14 @@ const RoomDetails = (props) => {
 	const [total, setTotal] = useState();
 	const [guests, setGuests] = useState(1);
 
+	const [valueQRCode, setValueQRCode] = useState(generateReserveNumber());
+
 	const [viewport, setViewport] = useState({
 		latitude: 21.018434,
 		longitude: 106.816845,
 		zoom: 8,
 	});
 
-	const mainRef = useRef();
 	const geocoderContainerRef = useRef();
 	const mapRef = useRef();
 	const handleViewportChange = useCallback(
@@ -259,11 +271,35 @@ const RoomDetails = (props) => {
 		window.scrollTo(0, 0);
 	}, []);
 
+	useEffect(() => {
+		var modal = document.getElementById("myModal");
+		var btn = document.getElementById("reserve-btn");
+		var span = document.getElementsByClassName("close")[0];
+		// When the user clicks the button, open the modal
+		btn.onclick = function () {
+			modal.style.display = "block";
+		};
+		// When the user clicks on <span> (x), close the modal
+		span.onclick = function () {
+			modal.style.display = "none";
+		};
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function (event) {
+			if (event.target == modal) {
+				modal.style.display = "none";
+			}
+		};
+	}, []);
+
+	useEffect(() => {
+		console.log(valueQRCode);
+	}, []);
+
 	return (
 		<>
 			<NavBar transparent={false} />
 			<div style={{height: "100px"}} />
-			<main ref={mainRef}>
+			<main>
 				<div id="room-brief-details" className="room-brief-images">
 					<div>
 						<h2 className="room-title">{roomDetails.title}</h2>
@@ -475,6 +511,10 @@ const RoomDetails = (props) => {
 								endDateTdCssObj={{
 									backgroundColor: "#555555",
 								}}
+								tdCssObj={{
+									fontSize: "14px",
+									width: "14.29%",
+								}}
 								onSelect={handleOnSelectCalendar}
 								leftArrowCss="background: #dddddd; &:hover {background: #0BB5CE}"
 							/>
@@ -546,8 +586,8 @@ const RoomDetails = (props) => {
 												</div>
 											</>
 										)}
-										<div className="start-btn">
-											<Link>Đặt Phòng</Link>
+										<div className="start-btn" id="reserve-btn">
+											Đặt Phòng
 										</div>
 									</form>
 								</div>
@@ -689,18 +729,25 @@ const RoomDetails = (props) => {
 						{userReviews.map((userReview) => {
 							return (
 								<li>
-									<div className="review-detail-avatar">
-										<div>
-											<Avatar
-												{...userReview.avatar}
-												style={{width: "70px", height: "70px"}}
-											/>
+									<Link
+										to={{
+											pathname: "/user-details",
+											state: userReview,
+										}}
+									>
+										<div className="review-detail-avatar">
+											<div>
+												<Avatar
+													{...userReview.avatar}
+													style={{width: "70px", height: "70px"}}
+												/>
+											</div>
+											<div>
+												<h4>{userReview.name}</h4>
+												<p>{userReview.dateReview}</p>
+											</div>
 										</div>
-										<div>
-											<h4>{userReview.name}</h4>
-											<p>{userReview.dateReview}</p>
-										</div>
-									</div>
+									</Link>
 									<div>
 										<p>{userReview.review}</p>
 									</div>
@@ -762,6 +809,39 @@ const RoomDetails = (props) => {
 								);
 							})}
 						</ul>
+					</div>
+				</div>
+
+				<div id="myModal" class="modal">
+					{/* <!-- Modal content --> */}
+					<div className="modal-content">
+						<div className="modal-header">
+							<span class="close">&times;</span>
+						</div>
+						<div className="modal-body">
+							<div className="modal-QR-content">
+								{startDate && endDate ? (
+									<>
+										<h5>Mã QR này dùng để check-in</h5>
+										<p>Hãy lưu hoặc chụp lại mã này</p>
+										<p className="note">
+											Lưu ý: không được chia sẻ cho ai mã này
+										</p>
+										<QRCode value={valueQRCode} />
+										{startDate && endDate && (
+											<p className="note">
+												{startDate} - {endDate}
+											</p>
+										)}
+									</>
+								) : (
+									<h4 style={{margin: "30px 0"}}>
+										Vui lòng chọn ngày đến và ngày đi của bạn để bắt đầu đặt
+										phòng
+									</h4>
+								)}
+							</div>
+						</div>
 					</div>
 				</div>
 			</main>

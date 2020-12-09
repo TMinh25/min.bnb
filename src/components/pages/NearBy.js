@@ -1,4 +1,4 @@
-import React, {useState, useRef, useCallback} from "react";
+import React, {useState, useRef, useCallback, useEffect} from "react";
 import NavBar from "../Navbar";
 import MapGL, {NavigationControl, GeolocateControl} from "react-map-gl";
 import Geocoder from "react-map-gl-geocoder";
@@ -52,6 +52,10 @@ const NearBy = (props) => {
 	const handleOnResultsMap = ({results}) => {};
 
 	const locationState = props.location.state;
+
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, []);
 
 	return (
 		<>

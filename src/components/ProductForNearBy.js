@@ -75,10 +75,14 @@ const roomsArr = [
 ];
 
 class ProductForNearBy extends React.Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 		this.state = {
 			hidden: "hidden",
+			host:
+				this.props.location && this.props.location.host
+					? this.props.location.host
+					: "Nguyễn Trường Minh",
 		};
 	}
 
@@ -112,6 +116,7 @@ class ProductForNearBy extends React.Component {
 										price={room.price}
 										timeStaying={room.timeStaying}
 										images={room.images}
+										host={this.state.host}
 									/>
 								);
 							})}
