@@ -79,13 +79,13 @@ function Footer() {
 			<section className="social-media">
 				<div className="social-media-wrap">
 					<div className="footer-logo">
-						<a
+						<span
 							className="social-logo"
 							onClick={() => window.scrollTo(0, 0)}
 							title="scroll to top"
 						>
 							<Logo />
-						</a>
+						</span>
 					</div>
 					<small className="website-rights">
 						<span>MIN.BNB © 2020 - Nguyễn Trường Minh</span>
@@ -95,6 +95,7 @@ function Footer() {
 							className="social-icon-link facebook"
 							href="https://www.facebook.com/sipp.minhh"
 							target="_blank"
+							rel="noopener noreferrer" 
 							aria-label="Facebook"
 						>
 							<i className="fab fa-facebook-f" />
@@ -103,6 +104,7 @@ function Footer() {
 							className="social-icon-link instagram"
 							href="https://www.instagram.com/hnim.gnourt/"
 							target="_blank"
+							rel="noopener noreferrer" 
 							aria-label="Instagram"
 						>
 							<i className="fab fa-instagram" />
@@ -111,6 +113,7 @@ function Footer() {
 							className="social-icon-link youtube"
 							href="https://www.youtube.com/"
 							target="_blank"
+							rel="noopener noreferrer" 
 							aria-label="Youtube"
 						>
 							<i className="fab fa-youtube" />
@@ -119,6 +122,7 @@ function Footer() {
 							className="social-icon-link twitter"
 							href="https://twitter.com/?lang=en"
 							target="_blank"
+							rel="noopener noreferrer" 
 							aria-label="Twitter"
 						>
 							<i className="fab fa-twitter" />
@@ -127,6 +131,7 @@ function Footer() {
 							className="social-icon-link twitter"
 							href="https://www.linkedin.com/login"
 							target="_blank"
+							rel="noopener noreferrer" 
 							aria-label="LinkedIn"
 						>
 							<i className="fab fa-linkedin" />

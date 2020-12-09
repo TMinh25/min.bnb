@@ -49,7 +49,7 @@ const NearBy = (props) => {
 		);
 	};
 
-	const handleOnResultsMap = ({results}) => {};
+	// const handleOnResultsMap = ({results}) => {};
 
 	const locationState = props.location.state;
 

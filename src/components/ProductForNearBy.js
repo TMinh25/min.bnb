@@ -116,7 +116,6 @@ class ProductForNearBy extends React.Component {
 										price={room.price}
 										timeStaying={room.timeStaying}
 										images={room.images}
-										host={this.state.host}
 									/>
 								);
 							})}

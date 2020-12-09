@@ -193,7 +193,7 @@ const RoomDetails = (props) => {
 	const [total, setTotal] = useState();
 	const [guests, setGuests] = useState(1);
 
-	const [valueQRCode, setValueQRCode] = useState(generateReserveNumber());
+	const valueQRCode = useState(generateReserveNumber());
 
 	const [viewport, setViewport] = useState({
 		latitude: 21.018434,
@@ -265,7 +265,7 @@ const RoomDetails = (props) => {
 		// window.scrollTo(0, 0);
 		console.log("room details:");
 		console.log(roomDetails);
-	}, []);
+	}, [roomDetails]);
 
 	useEffect(() => {
 		window.scrollTo(0, 0);
@@ -285,7 +285,7 @@ const RoomDetails = (props) => {
 		};
 		// When the user clicks anywhere outside of the modal, close it
 		window.onclick = function (event) {
-			if (event.target == modal) {
+			if (event.target === modal) {
 				modal.style.display = "none";
 			}
 		};
@@ -293,7 +293,7 @@ const RoomDetails = (props) => {
 
 	useEffect(() => {
 		console.log(valueQRCode);
-	}, []);
+	}, [valueQRCode]);
 
 	return (
 		<>
@@ -349,11 +349,11 @@ const RoomDetails = (props) => {
 								<div className="avatar-host">
 									<span class="helper"></span>
 									{Math.floor(Math.random() * 3) === 0 ? (
-										<img src="https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortFlat&accessoriesType=Sunglasses&hairColor=SilverGray&facialHairType=MoustacheMagnum&facialHairColor=BrownDark&clotheType=CollarSweater&clotheColor=Gray01&eyeType=Cry&eyebrowType=SadConcernedNatural&mouthType=Eating&skinColor=Light" />
+										<img src="https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortFlat&accessoriesType=Sunglasses&hairColor=SilverGray&facialHairType=MoustacheMagnum&facialHairColor=BrownDark&clotheType=CollarSweater&clotheColor=Gray01&eyeType=Cry&eyebrowType=SadConcernedNatural&mouthType=Eating&skinColor=Light" alt="avatar" />
 									) : Math.floor(Math.random() * 2) === 0 ? (
-										<img src="https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortCurly&accessoriesType=Sunglasses&hairColor=Black&facialHairType=Blank&facialHairColor=Platinum&clotheType=ShirtVNeck&clotheColor=Blue02&graphicType=Resist&eyeType=Side&eyebrowType=AngryNatural&mouthType=Serious&skinColor=Black" />
+										<img src="https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortCurly&accessoriesType=Sunglasses&hairColor=Black&facialHairType=Blank&facialHairColor=Platinum&clotheType=ShirtVNeck&clotheColor=Blue02&graphicType=Resist&eyeType=Side&eyebrowType=AngryNatural&mouthType=Serious&skinColor=Black" alt="avatar" />
 									) : (
-										<img src="https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShaggyMullet&accessoriesType=Blank&hatColor=Black&hairColor=Auburn&facialHairType=BeardLight&facialHairColor=Red&clotheType=GraphicShirt&clotheColor=Black&graphicType=Cumbia&eyeType=Dizzy&eyebrowType=RaisedExcitedNatural&mouthType=Tongue&skinColor=Tanned" />
+										<img src="https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShaggyMullet&accessoriesType=Blank&hatColor=Black&hairColor=Auburn&facialHairType=BeardLight&facialHairColor=Red&clotheType=GraphicShirt&clotheColor=Black&graphicType=Cumbia&eyeType=Dizzy&eyebrowType=RaisedExcitedNatural&mouthType=Tongue&skinColor=Tanned" alt="avatar" />
 									)}
 								</div>
 							</div>

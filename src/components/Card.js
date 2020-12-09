@@ -63,29 +63,33 @@ export const CardImage = (props) => {
 			<li>
 				<Image src={props.src} />
 				{props.header ? (
-					<h3 className="carousel-header" onClick={handleClick}>
-						{props.header}
-					</h3>
+					<Link to={props.path}>
+						<h3 className="carousel-header" onClick={handleClick}>
+							{props.header}
+						</h3>
+					</Link>
 				) : (
-					<div className="carousel-content" onClick={handleClick}>
-						<p>
-							<i className="fas fa-star" />
-							{props.rating && props.reviewQuantity
-								? ` ${props.rating.toFixed(1)} (${props.reviewQuantity})`
-								: " Chưa có review"}
-						</p>
-						<h4 className="carousel-title">{props.title}</h4>
-						<p className="carousel-description">{props.description}</p>
-						<p className="carousel-price">
-							<strong>
-								{props.sale && (
-									<span className="price-sale">`$${props.sale}`</span>
-								)}
-								{props.price && `$${props.price} `}
-							</strong>{" "}
-							{props.timeStaying && `/ ${props.timeStaying}`}
-						</p>
-					</div>
+					<Link to={props.path}>
+						<div className="carousel-content" onClick={handleClick}>
+							<p>
+								<i className="fas fa-star" />
+								{props.rating && props.reviewQuantity
+									? ` ${props.rating.toFixed(1)} (${props.reviewQuantity})`
+									: " Chưa có review"}
+							</p>
+							<h4 className="carousel-title">{props.title}</h4>
+							<p className="carousel-description">{props.description}</p>
+							<p className="carousel-price">
+								<strong>
+									{props.sale && (
+										<span className="price-sale">`$${props.sale}`</span>
+									)}
+									{props.price && `$${props.price} `}
+								</strong>{" "}
+								{props.timeStaying && `/ ${props.timeStaying}`}
+							</p>
+						</div>
+					</Link>
 				)}
 			</li>
 		</>
