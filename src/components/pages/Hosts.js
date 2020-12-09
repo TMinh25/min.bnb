@@ -429,8 +429,10 @@ class Hosts extends React.Component {
 						<img src="/images/ready-image.jpg" alt="ready?" />
 						<div className="ready-button">
 							<h1>Bạn đã sẵn sàng chưa?</h1>
+
 							<Button
-								buttonStyle="btn--primary"
+								className="btns"
+								buttonStyle="btn--outline"
 								buttonSize="btn--large"
 								onClick={this.scrollToTop}
 							>

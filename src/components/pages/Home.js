@@ -54,7 +54,14 @@ function Home() {
 						Món quà hoàn hảo <br /> cho mùa lễ hội?
 					</h3>
 					<p>Bất ngờ người thân bằng một giftcard của Minbnb</p>
-					<Button>Tìm hiểu thêm</Button>
+
+					<Button
+						className="btns"
+						buttonStyle="btn--outline"
+						buttonSize="btn--large"
+					>
+						Tìm hiểu thêm
+					</Button>
 				</div>
 			</div>
 			<section className>

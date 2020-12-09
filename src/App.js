@@ -18,7 +18,7 @@ function App() {
 					<Route name="home" path="/" exact component={Home} />
 					<Route name="services" path="/services" component={Services} />
 					<Route name="products" path="/products" component={Products} />
-					<Route name="nearby" path="/near-by" component={NearBy} />
+					<Route name="near-by" path="/near-by" component={NearBy} />
 					<Route name="hosts" path="/hosts" component={Hosts} />
 					<Route
 						name="room-details"
