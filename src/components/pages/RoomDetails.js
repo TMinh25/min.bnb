@@ -11,7 +11,6 @@ import ProgressBar from "../ProgressBar";
 import Avatar from "avataaars";
 import {Lily, Sextant, CasaIndigo, SaddlePeak} from "../images";
 import CardCarousel from "../Card";
-// import QRCode from "qrcode.react";
 import QRCode from "react-qr-code";
 
 const MAPBOX_TOKEN =
@@ -297,7 +296,7 @@ const RoomDetails = (props) => {
 	return (
 		<>
 			<NavBar transparent={false} />
-			<div style={{height: "100px"}} />
+			<div style={{height: 80}} />
 			<main>
 				<div id="room-brief-details" className="room-brief-images">
 					<div>

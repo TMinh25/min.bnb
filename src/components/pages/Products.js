@@ -110,7 +110,7 @@ const Products = (props) => {
 		<>
 			<NavBar transparent={false} />
 			{/* <h1 className="products">Products</h1> */}
-			<div style={{height: 80}} />
+			<div style={{height: 65}} />
 			{/* <div className="products-container"> */}
 			<main className="products-main">
 				<div className="products-container">

@@ -71,7 +71,7 @@ class Navbar extends React.Component {
 						<form className="nav-search-box">
 							<input
 								type="text"
-								name="search-value"
+								name="destination"
 								value={this.state.destination}
 								placeholder="Điểm đến mơ ước của bạn?"
 								onChange={this.handleChangeDestination}

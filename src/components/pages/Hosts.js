@@ -48,7 +48,7 @@ class Hosts extends React.Component {
 		return (
 			<>
 				<NavBar transparent={false} />
-				<div style={{height: 80}} />
+				<div style={{height: 65}} />
 				<div className="host-banner">
 					<div className="host-img">
 						<img src="/images/host-bgimg.jpg" alt="background" />
@@ -211,7 +211,23 @@ class Hosts extends React.Component {
 								</form>
 							</div>
 							<div className="start-btn">
-								<button>Bắt đầu làm chủ nào</button>
+								<button
+									onClick={() => {
+										// alert(
+										// 	// "Bạn đã đăng kí thành công, hãy đợi vị khách hàng đầu tiên nào"
+										// );
+										if (
+											window.alert(
+												"Bạn đã đăng kí thành công, hãy đợi vị khách hàng đầu tiên nào",
+												(onclick = () => {
+													window.location = "/";
+												})
+											)
+										);
+									}}
+								>
+									Bắt đầu làm chủ nào
+								</button>
 							</div>
 						</div>
 					</div>

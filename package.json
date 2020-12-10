@@ -7,6 +7,8 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "avataaars": "^1.2.1",
+    "axios": "^0.21.0",
+    "hooks": "^0.3.2",
     "react": "^16.13.1",
     "react-date-range-calendar": "^0.1.14",
     "react-dom": "^16.13.1",

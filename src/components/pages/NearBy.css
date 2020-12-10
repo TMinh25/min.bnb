@@ -11,11 +11,11 @@
 .map-container {
 	/* position: sticky; */
 	float: left;
-	height: 100vh;
+	height: 93vh;
 	width: 47%;
 	position: -webkit-sticky;
 	position: sticky;
-	top: 80px;
+	top: 65px;
 	font-size: 20px;
 }
 
@@ -85,14 +85,17 @@
 }
 
 .change-map-btn-container {
-	margin-top: 10px;
+	position: absolute;
+	z-index: 2;
+	transform: translate(10px, 20px);
+	/* margin-top: 10px; */
 }
 
 .change-map-btn {
 	border: none;
-	height: 29px;
-	width: 29px;
-	box-shadow: 0px 0px 5px 0px rgba(87, 87, 87, 0.75);
+	height: 36px;
+	width: 36px;
+	box-shadow: 0px 0px 5px 0px rgba(87, 87, 87, 0.05);
 	border-radius: 4px;
 	font-size: 12px;
 	color: #333333;
