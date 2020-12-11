@@ -351,7 +351,7 @@ template {
 	display: none;
 }
 
-.not-found {
+#not-found {
 	display: flex;
 	height: 100vh;
 	align-items: center;
